@@ -1,7 +1,6 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Twitter } from 'lucide-react';
-import { toast } from '@/components/ui/sonner';
+import { toast } from "sonner";
 
 const Contact = () => {
   const [name, setName] = useState('');
