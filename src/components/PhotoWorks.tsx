@@ -1,5 +1,4 @@
-
-import { useState, useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { ExternalLink } from 'lucide-react';
 
 interface PhotoWork {
@@ -56,11 +55,8 @@ const photoWorks: PhotoWork[] = [
 ];
 
 const PhotoWorks = () => {
-  const [filter, setFilter] = useState('All');
   const sectionRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-  
-  const categories = ['All', ...new Set(photoWorks.map(work => work.category))];
   
   useEffect(() => {
     const observerOptions = {
@@ -90,10 +86,6 @@ const PhotoWorks = () => {
     };
   }, []);
 
-  const filteredWorks = filter === 'All' 
-    ? photoWorks 
-    : photoWorks.filter(work => work.category === filter);
-
   return (
     <section id="photos" ref={sectionRef} className="section-padding">
       <div className="container mx-auto px-6 md:px-12">
@@ -109,24 +101,8 @@ const PhotoWorks = () => {
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-4 mb-12 reveal stagger-1">
-          {categories.map((category, index) => (
-            <button
-              key={index}
-              onClick={() => setFilter(category)}
-              className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
-                filter === category
-                  ? 'bg-portfolio-black text-white'
-                  : 'bg-portfolio-light-gray text-portfolio-gray hover:bg-portfolio-black/5'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filteredWorks.map((work, index) => (
+          {photoWorks.map((work, index) => (
             <div
               key={work.id}
               ref={el => (itemRefs.current[index + photoWorks.length] = el)}

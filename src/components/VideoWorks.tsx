@@ -48,11 +48,8 @@ const videoWorks: VideoWork[] = [
 
 const VideoWorks = () => {
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
-  const [filter, setFilter] = useState('All');
   const sectionRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-  
-  const categories = ['All', ...new Set(videoWorks.map(work => work.category))];
   
   useEffect(() => {
     const observerOptions = {
@@ -82,10 +79,6 @@ const VideoWorks = () => {
     };
   }, []);
 
-  const filteredWorks = filter === 'All' 
-    ? videoWorks 
-    : videoWorks.filter(work => work.category === filter);
-
   const handleVideoHover = (id: number) => {
     setActiveVideo(id);
   };
@@ -109,24 +102,8 @@ const VideoWorks = () => {
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-4 mb-12 reveal stagger-1">
-          {categories.map((category, index) => (
-            <button
-              key={index}
-              onClick={() => setFilter(category)}
-              className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
-                filter === category
-                  ? 'bg-portfolio-black text-white'
-                  : 'bg-white text-portfolio-gray hover:bg-portfolio-black/5'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {filteredWorks.map((work, index) => (
+          {videoWorks.map((work, index) => (
             <div
               key={work.id}
               ref={el => (itemRefs.current[index] = el)}

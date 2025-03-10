@@ -1,6 +1,5 @@
 
 import { useRef } from 'react';
-import ContactForm from './contact/ContactForm';
 import ContactInfo from './contact/ContactInfo';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
@@ -30,8 +29,7 @@ const Contact = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          <ContactForm />
+        <div className="max-w-xl mx-auto">
           <ContactInfo />
         </div>
       </div>
