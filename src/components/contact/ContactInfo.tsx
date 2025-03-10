@@ -28,10 +28,10 @@ const ContactInfo = () => {
           <div>
             <h4 className="text-lg font-medium mb-1">Phone</h4>
             <a 
-              href="tel:+1234567890" 
+              href="tel:+919495534922" 
               className="text-gray-300 hover:text-white transition-colors"
             >
-              +1 (234) 567-890
+              +91 9495534922
             </a>
           </div>
         </div>
@@ -52,13 +52,13 @@ const ContactInfo = () => {
           <h4 className="text-lg font-medium mb-4">Connect on Social Media</h4>
           <div className="flex space-x-4">
             <a 
-              href="#" 
+              href="https://www.instagram.com/g2uuee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
               className="w-10 h-10 rounded-full bg-portfolio-dark-gray flex items-center justify-center hover:bg-white hover:text-portfolio-black transition-all duration-300"
             >
               <Linkedin size={18} />
             </a>
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/tivedesigns/" 
               className="w-10 h-10 rounded-full bg-portfolio-dark-gray flex items-center justify-center hover:bg-white hover:text-portfolio-black transition-all duration-300"
             >
               <Instagram size={18} />
